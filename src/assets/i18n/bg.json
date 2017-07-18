@@ -1,0 +1,21 @@
+{
+  "page": {
+    "search" : {
+      "tab": "Провери",
+      "title": "Провери таксито",
+      "placeholder": "Рег. номер или разрешително",
+      "button": "Проверка"
+    },
+    "settings": {
+      "tab": "Настройки",
+      "title": "Настройки"
+    }
+  },
+  "settings": {
+    "language": "Eзик",
+    "appName": "Име на приложението",
+    "packageName": "Име на пакета",
+    "versionCode": "Код на версията",
+    "versionNumber": "Номер на версията"
+  }
+}

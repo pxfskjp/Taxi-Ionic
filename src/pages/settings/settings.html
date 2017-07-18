@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'page.settings.title' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>{{ 'settings.language' | translate }}:</ion-label>
+      <ion-select [(ngModel)]="config.lang" (ionChange)="saveLanguage()">
+        <ion-option *ngFor="let language of languagesList" value="{{language.code}}">{{language.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      {{ 'settings.appName' | translate }}:
+      <span item-end>{{ appName }}</span>
+    </ion-item>
+    
+    <ion-item>
+      {{ 'settings.packageName' | translate }}:
+      <span item-end>{{ packageName }}</span>
+    </ion-item>
+    
+    <ion-item>
+      {{ 'settings.versionCode' | translate }}:
+      <span item-end>{{ versionCode }}</span>
+    </ion-item>
+    
+    <ion-item>
+      {{ 'settings.versionNumber' | translate }}:
+      <span item-end>{{ versionNumber }}</span>
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,21 @@
+{
+  "page": {
+    "search" : {
+      "tab": "Verify",
+      "title": "Check this taxi",
+      "placeholder": "Plate number or licence",
+      "button": "Check now"
+    },
+    "settings": {
+      "tab": "Настройки",
+      "title": "Настройки"
+    }
+  },
+  "settings": {
+    "language": "Language",
+    "appName": "App name",
+    "packageName": "Package name",
+    "versionCode": "Version code",
+    "versionNumber": "Version number"
+  }
+}

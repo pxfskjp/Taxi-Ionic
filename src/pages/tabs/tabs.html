@@ -1,5 +1,4 @@
 <ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
+  <ion-tab [root]="searchTab" tabTitle="{{ 'page.search.tab' | translate }}" tabIcon="search"></ion-tab>
+  <ion-tab [root]="settingsTab" tabTitle="{{ 'page.settings.tab' | translate }}" tabIcon="information-circle"></ion-tab>
 </ion-tabs>
