@@ -1,20 +1,7 @@
-Ionic App Base
+Toxic Check Taxi
 =====================
 
-This is the base template for Ionic starter apps.
+Check your taxi - is it fake or real?
 
-## Using this project
+Currently the app is working for Sofia/Buglaria, using the data from [https://opendata.government.bg](https://opendata.government.bg/api/action/datastore_search?resource_id=980aad4c-821a-40bc-8cab-586a634b757b&limit=10000)
 
-Install the latest Ionic CLI:
-
-```bash
-$ npm install -g ionic
-```
-
-Then run:
-
-```bash
-$ ionic start myApp
-```
-
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/docs/v2/getting-started/) page.
