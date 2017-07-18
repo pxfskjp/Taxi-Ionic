@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "toxic.digital.checktaxi"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "toxic.digital.checktaxi"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "toxic.digital.checktaxi"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "toxic.digital.checktaxi"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "toxic.digital.checktaxi"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "toxic.digital.checktaxi"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "toxic.digital.checktaxi"
+        }
+    },
+    "dependent_plugins": {}
+}
