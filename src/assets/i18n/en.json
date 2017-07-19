@@ -3,7 +3,7 @@
     "search" : {
       "tab": "Verify",
       "title": "Check this taxi",
-      "placeholder": "Plate number or licence",
+      "placeholder": "Plate number",
       "button": "Check now"
     },
     "settings": {

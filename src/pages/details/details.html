@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ taxi.RegN }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- results listing - start -->
+  <ion-list>
+    <ion-item>
+      <h2>{{ taxi.Marka }} {{ taxi.Model }}</h2>
+    </ion-item>
+    
+    <ion-item>
+      Разрешително: {{ taxi.RazrNom }} от {{ taxi.RazrData | date : 'd/MMM/y' }}
+    </ion-item>
+    
+    <ion-item>
+      Валидно до: {{ taxi.DataValid | date : 'd/MMM/y' }}
+    </ion-item>
+    
+    <ion-item>
+      Удостоверение: {{ taxi.Udost }}
+    </ion-item>
+    
+    <ion-item>
+      Пореден номер: {{ taxi.PorN }}
+    </ion-item>
+    
+    <ion-item>
+      Шофьор: {{taxi.VodachIme}}
+    </ion-item>
+    
+    <ion-item>
+      {{ taxi.Prevozvach }}
+    </ion-item>
+    
+    <ion-item>
+      ЕИК: {{ taxi.EIK }}
+    </ion-item>
+  </ion-list>
+  <!-- results listing - end -->
+
+</ion-content>

@@ -1,6 +1,6 @@
 {
     "name": "toxic-check-taxi",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "Venelin Manchev",
     "homepage": "http://toxic.digital/",
     "private": true,
@@ -12,7 +12,7 @@
         "ionic:serve": "ionic-app-scripts serve"
     },
     "dependencies": {
-        "@angular/common": "4.1.3",
+        "@angular/common": "^4.3.0",
         "@angular/compiler": "4.1.3",
         "@angular/compiler-cli": "4.1.3",
         "@angular/core": "4.1.3",
