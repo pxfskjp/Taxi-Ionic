@@ -23,12 +23,22 @@ export class OpendataService {
   }
 
   search(q: string) {
+
     return this.jsonp
-      .request(this.apiUrl + q + '&callback=JSONP_CALLBACK', this.headers)
+      .request(this.apiUrl + this.transliterate(q.toUpperCase()) + '&callback=JSONP_CALLBACK', this.headers)
       .map(res => OpendataResponseTaxiModel.fromObject(res.json()))
       .map(res => {
         res.result.total = res.result.records.length;
         return res;
-    });
+      });
+  }
+
+  transliterate(word: string) {
+
+    let a = {"A": "А", "B": "В", "E": "Е", "K": "К", "M": "М", "H": "Н", "O": "О", "P": "Р", "C": "С", "T": "Т", "Y": "У", "X": "Х"};
+
+    return word.split('').map(function (char) {
+      return a[char] || char;
+    }).join("");
   }
 }

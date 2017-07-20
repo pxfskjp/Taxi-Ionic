@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {OpendataService} from '../../providers/opendata-service/opendata-service';
 import {OpendataResponseTaxiModel} from '../../models/taxi/opendata-response-taxi.model';
+import {OpendataRecordTaxiModel} from '../../models/taxi/opendata-record-taxi.model';
 import {DetailsPage} from '../details/details';
 
 @Component({
@@ -13,6 +14,7 @@ export class SearchPage {
 
   private formData: FormGroup;
   public results: OpendataResponseTaxiModel;
+  public hasResults: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -28,15 +30,15 @@ export class SearchPage {
   process() {
     this.opendataService
       .search(this.formData.get('q').value)
-      .subscribe(data => this.results = data);
+      .subscribe((data:OpendataResponseTaxiModel) => this.results = data);
   }
 
-  showDetails(item) {
+  showDetails(item:OpendataRecordTaxiModel) {
     this.navCtrl.push(DetailsPage, {taxi: item});
   }
-  
+
   clearData() {
     this.formData.reset();
-    this.results = null;
+    delete this.results;
   }
 }

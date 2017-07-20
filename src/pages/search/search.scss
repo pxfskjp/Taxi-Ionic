@@ -5,4 +5,39 @@ page-search {
   .item-wp {
     padding-left: 0;
   }
+
+  .item-block {
+    .item-inner {
+      padding-right: 0!important;
+      border-bottom: none!important;
+
+      .label {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .text-input-clear-icon {
+    right: 0!important;
+  }
+
+  .reg-plate {
+    background-image: url(/assets/images/bg-reg-plate.jpg);
+    background-repeat: no-repeat;
+    height: 70px;
+    line-height: 55px;
+    font-size: 40px;
+    font-weight: 600;
+    padding-left: 50px;
+
+    input {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.button {
+  &.button-default {
+    background: #7F6400;
+  }
 }

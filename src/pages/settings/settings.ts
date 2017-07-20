@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {AppVersion} from '@ionic-native/app-version';
+//import {AppVersion} from '@ionic-native/app-version';
 import {ConfigService} from '../../providers/config-service/config-service';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -23,7 +23,7 @@ export class SettingsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public configService: ConfigService,
-    public appVersion: AppVersion,
+    //public appVersion: AppVersion,
     public translate: TranslateService) {
 
     this.config = {};
@@ -47,9 +47,9 @@ export class SettingsPage {
       name: 'English'
     }];
 
-    this.appVersion.getAppName().then(data => this.appName = data);
-    this.appVersion.getPackageName().then(data => this.packageName = data);
-    this.appVersion.getVersionCode().then(data => this.versionCode = data);
-    this.appVersion.getVersionNumber().then(data => this.versionNumber = data);
+//    this.appVersion.getAppName().then(data => this.appName = data);
+//    this.appVersion.getPackageName().then(data => this.packageName = data);
+//    this.appVersion.getVersionCode().then(data => this.versionCode = data);
+//    this.appVersion.getVersionNumber().then(data => this.versionNumber = data);
   }
 }

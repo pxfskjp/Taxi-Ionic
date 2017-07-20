@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ 'page.search.title' | translate }}</ion-title>
+    <ion-title text-center>{{ 'page.search.title' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,8 +12,8 @@
       <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>
         <form [formGroup]="formData" (ngSubmit)="process()">
           <ion-item>
-            <ion-label floating>{{ 'page.search.placeholder' | translate }}:</ion-label>
-            <ion-input type="search" formControlName="q" clearInput="true" clearOnEdit="true" autocomplete="off" autocorrect="off" (focus)="clearData()"></ion-input>
+            <ion-label stacked text-center>{{ 'page.search.placeholder' | translate }}:</ion-label>
+            <ion-input type="search" class="reg-plate" text-center formControlName="q" clearInput="true" clearOnEdit="true" autocomplete="off" autocorrect="off" (focus)="clearData()"></ion-input>
           </ion-item>
           <button margin-top ion-button full type="submit" [disabled]="!formData.valid">{{ 'page.search.button' | translate }}</button>
         </form>
@@ -23,11 +23,29 @@
   <!-- search form - end -->
 
   <!-- results listing - start -->
-  <ion-list *ngIf="results && results.result.total > 0">
-    <button ion-item *ngFor="let item of results.result.records" (click)="showDetails(item)">
-            {{ item.RegN }}
-  </button>  
-</ion-list>
+  <ion-grid *ngIf="results && results.result.total > 0">
+    <ion-row justify-content-around>
+      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>  
+        <h6>Total results: {{ results.result.total }}</h6>
+        <ion-list>
+          <button ion-item *ngFor="let item of results.result.records" (click)="showDetails(item)">
+                  {{ item.RegN }}
+        </button>  
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>    
 <!-- results listing - end -->
+
+<!-- no results - start -->
+<ion-card class="no-results" *ngIf="results && results.result.total === 0">
+  <ion-card-header text-center>
+    Проблем!
+  </ion-card-header>
+  <ion-card-content>
+    Няма резултати за легално такси, отговарящо на Вашето запитване!
+  </ion-card-content>
+</ion-card>
+<!-- no results - end -->
 
 </ion-content>
