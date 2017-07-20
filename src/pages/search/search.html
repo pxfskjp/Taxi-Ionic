@@ -26,7 +26,7 @@
   <ion-grid *ngIf="results && results.result.total > 0">
     <ion-row justify-content-around>
       <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>  
-        <h6>Total results: {{ results.result.total }}</h6>
+        <h6>{{ 'page.search.results' | translate : {total: results.result.total} }}</h6>
         <ion-list>
           <button ion-item *ngFor="let item of results.result.records" (click)="showDetails(item)">
                   {{ item.RegN }}
@@ -40,10 +40,10 @@
 <!-- no results - start -->
 <ion-card class="no-results" *ngIf="results && results.result.total === 0">
   <ion-card-header text-center>
-    Проблем!
+    {{ 'page.search.error.title' | translate }}
   </ion-card-header>
   <ion-card-content>
-    Няма резултати за легално такси, отговарящо на Вашето запитване!
+    {{ 'page.search.error.message' | translate }}
   </ion-card-content>
 </ion-card>
 <!-- no results - end -->

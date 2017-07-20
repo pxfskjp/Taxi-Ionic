@@ -4,7 +4,12 @@
       "tab": "Verify",
       "title": "Check this taxi",
       "placeholder": "Plate number",
-      "button": "Check now"
+      "button": "Check now",
+      "results": "Results: {{ total }}",
+      "error": {
+        "title": "Warning!",
+        "message": "There are no results, matching your search criteria!"
+      }
     },
     "settings": {
       "tab": "Settings",
