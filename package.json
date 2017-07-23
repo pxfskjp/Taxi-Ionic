@@ -1,6 +1,6 @@
 {
-    "name": "toxic-check-taxi",
-    "version": "0.0.5",
+    "name": "toxic-taxi-check",
+    "version": "0.0.6",
     "author": "Venelin Manchev",
     "homepage": "http://toxic.digital/",
     "private": true,
