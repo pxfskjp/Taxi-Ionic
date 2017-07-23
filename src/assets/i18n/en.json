@@ -1,6 +1,6 @@
 {
   "page": {
-    "search" : {
+    "search": {
       "tab": "Verify",
       "title": "Check this taxi",
       "placeholder": "Plate number",
@@ -9,6 +9,21 @@
       "error": {
         "title": "Warning!",
         "message": "There are no results, matching your search criteria!"
+      }
+    },
+    "details": {
+      "car": "Car",
+      "license": {
+        "number": "License No.",
+        "from": "Issue date",
+        "to": "Exp. date"
+      },
+      "certificate": "Certificate",
+      "driverName": "Driver",
+      "company": {
+        "title": "Company",
+        "name": "Name",
+        "id": "ID"
       }
     },
     "settings": {

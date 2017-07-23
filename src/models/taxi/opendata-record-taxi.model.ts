@@ -12,9 +12,10 @@ export class OpendataRecordTaxiModel extends OpendataRecordModel {
   public RazrData: string;
   public RazrNom: string;
   public RegN: string;
-  public Statis: string;
+  public Status: string;
   public Udost: string;
   public VodachIme: string;
+  public showImage?: boolean;
 
   static fromObject = function (data: object) {
 

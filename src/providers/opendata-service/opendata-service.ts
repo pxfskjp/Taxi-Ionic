@@ -4,6 +4,7 @@ import {ConfigService} from '../config-service/config-service';
 import {OpendataResponseTaxiModel} from '../../models/taxi/opendata-response-taxi.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import _ from 'lodash';
 
 @Injectable()
 export class OpendataService {
@@ -27,10 +28,22 @@ export class OpendataService {
     return this.jsonp
       .request(this.apiUrl + this.transliterate(q.toUpperCase()) + '&callback=JSONP_CALLBACK', this.headers)
       .map(res => OpendataResponseTaxiModel.fromObject(res.json()))
+      .map(res => this.filterInvalid(res))
       .map(res => {
         res.result.total = res.result.records.length;
         return res;
       });
+  }
+
+  filterInvalid(res: OpendataResponseTaxiModel): OpendataResponseTaxiModel {
+
+    if (res.result.records.length === 0) {
+      return res;
+    }
+
+    _.remove(res.result.records, {Status: 'прекратено'});
+
+    return res;
   }
 
   transliterate(word: string) {
@@ -41,4 +54,5 @@ export class OpendataService {
       return a[char] || char;
     }).join("");
   }
+
 }
