@@ -21,22 +21,32 @@ export class SearchPage {
     public formBuilder: FormBuilder,
     public opendataService: OpendataService, ) {
 
+    //search form setup
     this.formData = this.formBuilder.group({
       q: ['', [Validators.required, Validators.minLength(4)]]
     });
 
   }
 
+  /**
+   * Handle form submittion
+   */
   process() {
     this.opendataService
       .search(this.formData.get('q').value)
-      .subscribe((data:OpendataResponseTaxiModel) => this.results = data);
+      .subscribe((data: OpendataResponseTaxiModel) => this.results = data);
   }
 
-  showDetails(item:OpendataRecordTaxiModel) {
+  /**
+   * Redirect to the details page, when a result is selected
+   */
+  showDetails(item: OpendataRecordTaxiModel) {
     this.navCtrl.push(DetailsPage, {taxi: item});
   }
 
+  /**
+   * Clear the form data
+   */
   clearData() {
     this.formData.reset();
     delete this.results;

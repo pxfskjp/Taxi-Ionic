@@ -23,10 +23,19 @@ export class OpendataService {
     this.headers.append('Access-Control-Allow-Origin', '*');
   }
 
+  /**
+   * Search taxi api
+   *
+   * Using the keyword provided by the user, call the official 
+   * api and search for mattching records. Pretend the keyword 
+   * is a plate number.
+   *
+   * @returns OpendataResponseTaxiModel
+   */
   search(q: string) {
 
     return this.jsonp
-      .request(this.apiUrl + this.transliterate(q.toUpperCase()) + '&callback=JSONP_CALLBACK', this.headers)
+      .request(this.apiUrl + this.asPlateNumber(q) + '&callback=JSONP_CALLBACK', this.headers)
       .map(res => OpendataResponseTaxiModel.fromObject(res.json()))
       .map(res => this.filterInvalid(res))
       .map(res => {
@@ -35,6 +44,11 @@ export class OpendataService {
       });
   }
 
+  /**
+   * Filter invalid results
+   * 
+   * Remove all results with Status: "прекратено"
+   */
   filterInvalid(res: OpendataResponseTaxiModel): OpendataResponseTaxiModel {
 
     if (res.result.records.length === 0) {
@@ -46,13 +60,29 @@ export class OpendataService {
     return res;
   }
 
-  transliterate(word: string) {
+  /**
+   * Cyr to Latin transliteration only for the plate number letters
+   */
+  transliterate(word: string): string {
 
     let a = {"A": "А", "B": "В", "E": "Е", "K": "К", "M": "М", "H": "Н", "O": "О", "P": "Р", "C": "С", "T": "Т", "Y": "У", "X": "Х"};
 
     return word.split('').map(function (char) {
       return a[char] || char;
     }).join("");
+  }
+
+  /**
+   * Format as plate number
+   * 
+   * Use the keyword provided by the user and try to format it 
+   * as plate number, e.g. "A 1234 BB" or "AA 1234 BB"
+   */
+  asPlateNumber(q: string): string {
+    return this
+      .transliterate(q.toUpperCase())
+      .replace(/^(\D{1,2})(\d)/, "$1 $2")
+      .replace(/(\d)(\D{1,2})$/, "$1 $2");
   }
 
 }

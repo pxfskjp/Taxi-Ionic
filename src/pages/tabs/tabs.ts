@@ -7,11 +7,6 @@ import { SearchPage } from '../search/search';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
   searchTab = SearchPage;
   settingsTab = SettingsPage;
-
-  constructor() {
-
-  }
 }
