@@ -9,11 +9,11 @@
   <!-- search form - start -->
   <ion-grid>
     <ion-row justify-content-around>
-      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>
+      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>        
         <form [formGroup]="formData" (ngSubmit)="process()">
           <ion-item class="reg-plate">
             <ion-label stacked text-center class="reg-plate__label">{{ 'page.search.placeholder' | translate }}:</ion-label>
-            <ion-input type="search" class="reg-plate__input" text-center formControlName="q" clearInput="true" clearOnEdit="true" autocomplete="off" autocorrect="off" (focus)="clearData()"></ion-input>
+            <ion-input type="search" class="reg-plate__input" text-center formControlName="q" clearInput="true" clearOnEdit="true" autocomplete="off" autocorrect="off"></ion-input>
           </ion-item>
           <button margin-top ion-button full type="submit" [disabled]="!formData.valid">{{ 'page.search.button' | translate }}</button>
         </form>
@@ -22,30 +22,15 @@
   </ion-grid>    
   <!-- search form - end -->
 
-  <!-- results listing - start -->
-  <ion-grid *ngIf="results && results.result.total > 0">
-    <ion-row justify-content-around>
-      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>  
-        <h6>{{ 'page.search.results' | translate : {total: results.result.total} }}</h6>
-        <ion-list class="results">
-          <button ion-item class="reg-plate" *ngFor="let item of results.result.records" (click)="showDetails(item)">
-                  {{ item.RegN }}
-        </button>  
-      </ion-list>
-    </ion-col>
-  </ion-row>
-</ion-grid>    
-<!-- results listing - end -->
-
-<!-- no results - start -->
-<ion-card class="no-results" *ngIf="results && results.result.total === 0">
-  <ion-card-header text-center>
-    {{ 'page.search.error.title' | translate }}
-  </ion-card-header>
-  <ion-card-content>
-    {{ 'page.search.error.message' | translate }}
-  </ion-card-content>
-</ion-card>
-<!-- no results - end -->
+  <!-- no results - start -->
+  <ion-card class="no-results" *ngIf="results && results.result.total === 0">
+    <ion-card-header text-center>
+      {{ 'page.search.error.title' | translate }}
+    </ion-card-header>
+    <ion-card-content>
+      {{ 'page.search.error.message' | translate }}
+    </ion-card-content>
+  </ion-card>
+  <!-- no results - end -->
 
 </ion-content>

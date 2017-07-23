@@ -5,6 +5,7 @@ import {MyApp} from './app.component';
 
 import {SettingsPage} from '../pages/settings/settings';
 import {SearchPage} from '../pages/search/search';
+import {ResultsPage} from '../pages/results/results';
 import {DetailsPage} from '../pages/details/details';
 import {TabsPage} from '../pages/tabs/tabs';
 
@@ -18,6 +19,9 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpModule, Http, JsonpModule} from '@angular/http';
 import {AppVersion} from '@ionic-native/app-version';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
+import { MomentModule } from 'angular2-moment';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,6 +32,7 @@ export function createTranslateLoader(http: Http) {
     MyApp,
     SettingsPage,
     SearchPage,
+    ResultsPage,
     DetailsPage,
     TabsPage
   ],
@@ -45,13 +50,15 @@ export function createTranslateLoader(http: Http) {
         useFactory: (createTranslateLoader),
         deps: [Http]
       }
-    })
+    }),
+    MomentModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     SettingsPage,
     SearchPage,
+    ResultsPage,
     TabsPage,
     DetailsPage
   ],
@@ -61,7 +68,8 @@ export function createTranslateLoader(http: Http) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigService,
     OpendataService,
-    AppVersion
+    AppVersion,
+    ScreenOrientation
   ]
 })
 export class AppModule {}

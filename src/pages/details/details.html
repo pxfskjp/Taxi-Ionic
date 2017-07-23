@@ -15,13 +15,13 @@
     <ion-item>
       {{ 'page.details.license.number' | translate }}: <span item-end>{{ taxi.RazrNom }}</span>
     </ion-item>
-    
+
     <ion-item>
-      {{ 'page.details.license.from' | translate }}: <span item-end>{{ taxi.RazrData | date : 'd/MMM/y' }}</span>
+      {{ 'page.details.license.from' | translate }}: <span item-end>{{ taxi.RazrData | amLocale: translateService.currentLang | amDateFormat : 'DD/MMMM/YYYY' }}</span>
     </ion-item>
     
     <ion-item>
-      {{ 'page.details.license.to' | translate }}: <span item-end>{{ taxi.DataValid | date : 'd/MMM/y' }}</span>
+      {{ 'page.details.license.to' | translate }}: <span item-end>{{ taxi.DataValid | amLocale: translateService.currentLang | amDateFormat : 'DD/MMMM/YYYY' }}</span>
     </ion-item>
     
     <ion-item>
@@ -31,11 +31,7 @@
     <ion-item>
       {{ 'page.details.driverName' | translate }}: <span item-end>{{taxi.VodachIme}}</span>
     </ion-item>
-    
-    <ion-list-header>
-      {{ 'page.details.company.title' | translate }}
-    </ion-list-header>
-    
+        
     <ion-item>
       {{ 'page.details.company.name' | translate }}: <span item-end>{{ taxi.Prevozvach }}</span>
     </ion-item>

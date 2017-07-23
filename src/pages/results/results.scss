@@ -1,5 +1,5 @@
-page-search {
-
+page-results {
+  
   .item-ios,
   .item-md,
   .item-wp {
@@ -16,138 +16,153 @@ page-search {
         font-size: 1.6rem;
       }
     }
-  }
+  }  
+  
+  
+  .results {
 
-  .text-input-clear-icon {
-    right: 0!important;
-  }
-
-  .reg-plate {
-
-    &.item-input-has-focus {
-      .item-inner {
-        border: none;
-        box-shadow: none!important;
-      }
+    .item-block {
+      border-bottom: none!important;
     }
 
-    &__input {
-      > .text-input {
+    .reg-plate {
+
+      .label {
         background-image: url(../assets/images/bg-reg-plate.jpg);
         background-size:100%;
         background-repeat: no-repeat;
         height: 57px;
         font-size:2em;
+        line-height: 57px;
         font-weight: 600;
         padding-left: 50px;
+        padding-right: 20px;
+        text-align: center;
+        margin-right: 0;
         width: 100%!important;
         text-transform: uppercase;
 
+
         @media screen and (min-width: 360px) {
           height: 67px;
+          line-height: 67px;
         }
 
         @media screen and (min-width: 375px) {
           height: 70px;
+          line-height: 70px;
         }
 
         @media screen and (min-width: 400px) {
           height: 77px;
+          line-height: 77px;
         }
 
         @media screen and (min-width: 440px) {
           height: 82px;
+          line-height: 82px;
         }
 
         @media screen and (min-width: 460px) {
           height: 87px;
+          line-height: 87px;
         }
 
         @media screen and (min-width: 490px) {
           height: 92px;
+          line-height: 92px;
         }
 
         @media screen and (min-width: 510px) {
           height: 96px;
+          line-height: 96px;
         }
 
         @media screen and (min-width: 560px) {
           height: 111px;
+          line-height: 111px;
         }
 
         @media screen and (min-width: 576px) {
           height: 54px;
+          line-height: 54px;
         }
 
         @media screen and (min-width: 600px) {
           height: 63px;
+          line-height: 63px;
         }
 
         @media screen and (min-width: 667px) {
           height: 66px;
+          line-height: 66px;
         }
 
         @media screen and (min-width: 686px) {
           height: 65px;
+          line-height: 65px;
         }
 
         @media screen and (min-width: 700px) {
           height: 70px;
+          line-height: 70px;
         }
 
         @media screen and (min-width: 723px) {
           height: 73px;
+          line-height: 73px;
         }
 
         @media screen and (min-width: 768px) {
           height: 75px;
+          line-height: 75px;
         }
 
         @media screen and (min-width: 780px) {
           height: 78px;
+          line-height: 78px;
         }
 
         @media screen and (min-width: 833px) {
           height: 83px;
+          line-height: 83px;
         }
 
         @media screen and (min-width: 893px) {
           height: 86px;
+          line-height: 86px;
         }
 
         @media screen and (min-width: 1024px) {
           height: 67px;
+          line-height: 67px;
         }
 
         @media screen and (min-width: 1200px) {
           height: 59px;
+          line-height: 59px;
         }
 
         @media screen and (min-width: 1300px) {
           height: 65px;
+          line-height: 65px;
         }
 
         @media screen and (min-width: 1400px) {
           height: 70px;
+          line-height: 70px;
         }
 
         @media screen and (min-width: 1500px) {
           height: 75px;
+          line-height: 75px;
         }
 
         @media screen and (min-width: 1600px) {
           height: 81px;
+          line-height: 81px;
         }
       }
-    }
-  }
-}
-
-.button {
-  
-  padding: 30px 20px;  
-  
-  &.button-default {
-    background: #7F6400;
+    }    
   }
 }

@@ -3,6 +3,7 @@ import {NavParams} from 'ionic-angular';
 import {OpendataRecordTaxiModel} from '../../models/taxi/opendata-record-taxi.model';
 import {ConfigService} from '../../providers/config-service/config-service';
 import {translitbg} from 'translitbg';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'page-details',
@@ -14,13 +15,14 @@ export class DetailsPage {
 
   constructor(
     public navParams: NavParams,
-    public configService: ConfigService) {
+    public configService: ConfigService,
+    public translateService: TranslateService) {
     this.taxi = this.navParams.get('taxi');
 
     this.configService
     .getAll()
     .then(cfg => {
-      if(cfg.lang === 'en'){
+      if(cfg.lang !== 'bg'){
 
         let tr = translitbg.create();
         

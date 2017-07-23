@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{ 'page.search.title' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- results listing - start -->
+  <ion-grid *ngIf="results && results.result.total > 0">
+    <ion-row justify-content-around>
+      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>  
+        <h6>{{ 'page.search.results' | translate : {total: results.result.total} }}</h6>
+        <ion-list class="results">
+          <button ion-item class="reg-plate" *ngFor="let item of results.result.records" (click)="showDetails(item)">
+                  {{ item.RegN }}
+        </button>  
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>    
+<!-- results listing - end -->
+
+</ion-content>
+

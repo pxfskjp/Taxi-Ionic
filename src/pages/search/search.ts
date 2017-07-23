@@ -3,8 +3,7 @@ import {NavController} from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {OpendataService} from '../../providers/opendata-service/opendata-service';
 import {OpendataResponseTaxiModel} from '../../models/taxi/opendata-response-taxi.model';
-import {OpendataRecordTaxiModel} from '../../models/taxi/opendata-record-taxi.model';
-import {DetailsPage} from '../details/details';
+import {ResultsPage} from '../results/results';
 
 @Component({
   selector: 'page-search',
@@ -14,7 +13,7 @@ export class SearchPage {
 
   private formData: FormGroup;
   public results: OpendataResponseTaxiModel;
-  public hasResults: boolean;
+  public hasResults: boolean
 
   constructor(
     public navCtrl: NavController,
@@ -25,7 +24,10 @@ export class SearchPage {
     this.formData = this.formBuilder.group({
       q: ['', [Validators.required, Validators.minLength(4)]]
     });
+  }
 
+  ionViewWillEnter() {
+    this.clearData();
   }
 
   /**
@@ -34,14 +36,7 @@ export class SearchPage {
   process() {
     this.opendataService
       .search(this.formData.get('q').value)
-      .subscribe((data: OpendataResponseTaxiModel) => this.results = data);
-  }
-
-  /**
-   * Redirect to the details page, when a result is selected
-   */
-  showDetails(item: OpendataRecordTaxiModel) {
-    this.navCtrl.push(DetailsPage, {taxi: item});
+      .subscribe((data: OpendataResponseTaxiModel) => this.showResults(data));
   }
 
   /**
@@ -51,4 +46,17 @@ export class SearchPage {
     this.formData.reset();
     delete this.results;
   }
+  
+  /**
+   * Redirect to the details page, when a result is selected
+   */
+  showResults(items: OpendataResponseTaxiModel) {
+    
+    if (items.result.records.length > 0){
+      return this.navCtrl.push(ResultsPage, {items: items});
+    }
+    
+    this.results = items;
+    
+  }  
 }
