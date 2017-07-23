@@ -22,16 +22,122 @@ page-search {
   }
 
   .reg-plate {
-    background-image: url(../assets/images/bg-reg-plate.jpg);
-    background-repeat: no-repeat;
-    height: 70px;
-    line-height: 55px;
-    font-size: 40px;
-    font-weight: 600;
-    padding-left: 50px;
 
-    input {
-      text-transform: uppercase;
+    &.item-input-has-focus {
+      .item-inner {
+        border: none;
+        box-shadow: none!important;
+      }
+    }
+    
+    &__input {
+      > .text-input {
+        background-image: url(../assets/images/bg-reg-plate.jpg);
+        background-size:100%;
+        background-repeat: no-repeat;
+        height: 57px;
+        font-size:2em;
+        font-weight: 600;
+        padding-left: 50px;
+        width: 100%!important;
+        text-transform: uppercase;
+        
+        @media screen and (min-width: 360px) {
+          height: 67px;
+        }
+        
+        @media screen and (min-width: 375px) {
+          height: 70px;
+        }
+        
+        @media screen and (min-width: 400px) {
+          height: 77px;
+        }
+        
+        @media screen and (min-width: 440px) {
+          height: 82px;
+        }
+        
+        @media screen and (min-width: 460px) {
+          height: 87px;
+        }
+        
+        @media screen and (min-width: 490px) {
+          height: 92px;
+        }
+        
+        @media screen and (min-width: 510px) {
+          height: 96px;
+        }
+        
+        @media screen and (min-width: 560px) {
+          height: 111px;
+        }
+        
+        @media screen and (min-width: 576px) {
+          height: 54px;
+        }
+        
+        @media screen and (min-width: 600px) {
+          height: 63px;
+        }
+        
+        @media screen and (min-width: 667px) {
+          height: 66px;
+        }
+        
+        @media screen and (min-width: 686px) {
+          height: 65px;
+        }
+        
+        @media screen and (min-width: 700px) {
+          height: 70px;
+        }
+        
+        @media screen and (min-width: 723px) {
+          height: 73px;
+        }
+        
+        @media screen and (min-width: 768px) {
+          height: 75px;
+        }
+        
+        @media screen and (min-width: 780px) {
+          height: 78px;
+        }
+        
+        @media screen and (min-width: 833px) {
+          height: 83px;
+        }
+        
+        @media screen and (min-width: 893px) {
+          height: 86px;
+        }
+        
+        @media screen and (min-width: 1024px) {
+          height: 67px;
+        }
+        
+        @media screen and (min-width: 1200px) {
+          height: 59px;
+        }
+        
+        @media screen and (min-width: 1300px) {
+          height: 65px;
+        }
+        
+        @media screen and (min-width: 1400px) {
+          height: 70px;
+        }
+        
+        @media screen and (min-width: 1500px) {
+          height: 75px;
+        }
+        
+        @media screen and (min-width: 1600px) {
+          height: 81px;
+        }
+      }
     }
   }
 }
