@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Jsonp} from '@angular/http';
+import {Http, Jsonp, Headers} from '@angular/http';
 import {ConfigService} from '../config-service/config-service';
 import {OpendataResponseTaxiModel} from '../../models/taxi/opendata-response-taxi.model';
 import 'rxjs/add/operator/map';
@@ -35,7 +35,7 @@ export class OpendataService {
   search(q: string) {
 
     return this.jsonp
-      .request(this.apiUrl + this.asPlateNumber(q) + '&callback=JSONP_CALLBACK', this.headers)
+      .request(this.apiUrl + '{"RegN":"*'+this.asPlateNumber(q)+'*"}' + '&callback=JSONP_CALLBACK', this.headers)
       .map(res => OpendataResponseTaxiModel.fromObject(res.json()))
       .map(res => this.filterInvalid(res))
       .map(res => {

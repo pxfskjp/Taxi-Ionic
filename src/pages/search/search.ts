@@ -45,6 +45,7 @@ export class SearchPage {
   clearData() {
     this.formData.reset();
     delete this.results;
+    console.log(this.results)
   }
   
   /**

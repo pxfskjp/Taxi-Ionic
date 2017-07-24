@@ -13,7 +13,7 @@
         <form [formGroup]="formData" (ngSubmit)="process()">
           <ion-item class="reg-plate">
             <ion-label stacked text-center class="reg-plate__label">{{ 'page.search.placeholder' | translate }}:</ion-label>
-            <ion-input type="search" class="reg-plate__input" text-center formControlName="q" clearInput="true" clearOnEdit="true" autocomplete="off" autocorrect="off"></ion-input>
+            <ion-input type="search" class="reg-plate__input" text-center formControlName="q" clearInput="true" clearOnEdit="true" autocomplete="off" autocorrect="off" (click)="clearData()"></ion-input>
           </ion-item>
           <button margin-top ion-button full type="submit" [disabled]="!formData.valid">{{ 'page.search.button' | translate }}</button>
         </form>
