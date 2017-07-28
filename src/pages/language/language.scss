@@ -1,0 +1,23 @@
+.language-modal {
+  .modal-wrapper {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    
+    .grid {
+      margin-top: 50%;
+      
+      .languages {
+        .item {
+          padding-left: 0;
+          
+          .item-inner {
+            background-position: right center;
+          }
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import {SettingsPage} from '../pages/settings/settings';
 import {SearchPage} from '../pages/search/search';
 import {ResultsPage} from '../pages/results/results';
 import {DetailsPage} from '../pages/details/details';
+import {LanguagePage} from '../pages/language/language';
 import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
@@ -34,6 +35,7 @@ export function createTranslateLoader(http: Http) {
     SearchPage,
     ResultsPage,
     DetailsPage,
+    LanguagePage,
     TabsPage
   ],
   imports: [
@@ -60,7 +62,8 @@ export function createTranslateLoader(http: Http) {
     SearchPage,
     ResultsPage,
     TabsPage,
-    DetailsPage
+    DetailsPage,
+    LanguagePage
   ],
   providers: [
     StatusBar,

@@ -5,8 +5,6 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {ScreenOrientation} from '@ionic-native/screen-orientation';
 import {TranslateService} from '@ngx-translate/core';
 import {ConfigService} from '../providers/config-service/config-service';
-import _ from "lodash";
-import moment from "moment";
 import {TabsPage} from '../pages/tabs/tabs';
 
 @Component({
@@ -27,28 +25,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      
+
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY);
-
-      configService.getAll().then(data => {
-
-        if (_.isNull(data)) {
-          data = {
-            lang: 'bg'
-          }
-
-          configService.save(data);
-        }
-
-        translate.setDefaultLang(data.lang);
-        translate.currentLang = data.lang;
-
-        moment.locale(data.lang);
-        moment.updateLocale(data.lang, {
-          months: moment.months().map(_.capitalize)
-        });
-
-      });
     });
   }
 }
