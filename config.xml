@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="digital.toxic.taxicheck" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="digital.toxic.taxicheck" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Taxi Check</name>
     <description>Check your taxi - is it fake or real</description>
     <author email="venelinphp@gmail.com" href="http://toxic.digital/">Toxic Digital</author>
