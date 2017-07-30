@@ -26,7 +26,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY);
+      //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY);
     });
   }
 }

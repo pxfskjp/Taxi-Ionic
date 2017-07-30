@@ -13,13 +13,11 @@ export class ResultsPage {
   public results: OpendataResponseTaxiModel;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams) {
-    
+
     this.results = this.navParams.get('items');
   }
-
-  
 
   /**
    * Redirect to the details page, when a result is selected

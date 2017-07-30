@@ -12,7 +12,7 @@ import _ from 'lodash';
 })
 export class LanguagePage {
 
-  public defaultConfig: ConfigModel;
+  public defaultConfig: object;
   public configModel: ConfigModel;
 
   constructor(
@@ -28,30 +28,21 @@ export class LanguagePage {
     return this.configService.getAll().then((configModel: ConfigModel) => {
 
       this.configModel = configModel;
+      this.defaultConfig = this.configService.loadDefaultData();
 
-      if (_.isNull(this.configModel)) {
-        //the user opens the app for the first time
-        return this.configService
-          .loadDefaultData()
-          .then((defaultConfig: ConfigModel) => {
-            this.defaultConfig = defaultConfig;
-            this.configModel = defaultConfig;
-            return true;
-          });
-      } else {
+      if (!_.isNull(this.configModel)) {
+        //it's open as a page, not as modal
         if (_.isEmpty(this.navParams.data)) {
           this.setLanguage(configModel.selectedLanguage);
-        } else {
-          this.defaultConfig = this.configModel;
         }
         return true;
       }
-
     });
   }
 
   setLanguage(selectedLanguage: LanguageModel) {
 
+    this.configModel = new ConfigModel();
     this.configModel.selectedLanguage = selectedLanguage;
 
     this.configService.save(this.configModel).then(() => {

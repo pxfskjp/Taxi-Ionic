@@ -8,8 +8,8 @@
   <ion-list>
     <ion-item>
       <ion-label>{{ 'page.settings.language' | translate }}:</ion-label>
-      <ion-avatar item-end *ngIf="configModel">
-        <img src="assets/images/flags/{{ configModel.selectedLanguage.code }}.png" (click)="changeLanguage();">
+      <ion-avatar item-end>
+        <img src="assets/images/flags/{{ translate.currentLang }}.png" (click)="changeLanguage();">
       </ion-avatar>
     </ion-item>
 

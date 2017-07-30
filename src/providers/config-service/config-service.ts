@@ -13,6 +13,18 @@ export class ConfigService {
   constructor(
     public storage: Storage,
     public translate: TranslateService) {
+
+    this.translate.onDefaultLangChange.subscribe(params => {
+
+      this.translate.use(params.lang);
+
+      moment.locale(params.lang);
+      moment.updateLocale(params.lang, {
+        months: moment.months().map(_.capitalize)
+      });
+
+    });
+
   }
 
   getAll(): Promise<any> {
@@ -26,8 +38,8 @@ export class ConfigService {
     return this.storage.set('cfg', cfg);
   }
 
-  loadDefaultData(): Promise<any> {
-    return this.storage.set('cfg', {
+  loadDefaultData(): object {
+    return {
       selectedLanguage: {},
       availableLanguages: [{
         code: 'bg',
@@ -36,19 +48,10 @@ export class ConfigService {
         code: 'en',
         name: 'English'
       }]
-    });
+    };
   }
 
   setSessionData(config: ConfigModel) {
-
     this.translate.setDefaultLang(config.selectedLanguage.code);
-    this.translate.currentLang = config.selectedLanguage.code;
-
-    moment.locale(config.selectedLanguage.code);
-    moment.updateLocale(config.selectedLanguage.code, {
-      months: moment.months().map(_.capitalize)
-    });
-
-
   }
 }

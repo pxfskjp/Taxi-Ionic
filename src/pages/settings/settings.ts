@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {NavController, NavParams, ModalController} from 'ionic-angular';
 import {AppVersion} from '@ionic-native/app-version';
 import {ConfigService} from '../../providers/config-service/config-service';
-import {ConfigModel} from '../../models/config/config.model';
 import {LanguagePage} from '../language/language';
 import {TranslateService} from '@ngx-translate/core';
 import _ from 'lodash';
@@ -13,7 +12,6 @@ import _ from 'lodash';
 })
 export class SettingsPage {
 
-  public configModel: ConfigModel;
   public appName: any;
   public packageName: any;
   public versionCode: any;
@@ -30,24 +28,15 @@ export class SettingsPage {
 
   ionViewDidEnter() {
 
-    this.configService.getAll().then((configModel: ConfigModel) => {
-      this.configModel = configModel;
-    });
-
-    this.appVersion.getAppName().then(data => this.appName = data);
-    this.appVersion.getPackageName().then(data => this.packageName = data);
-    this.appVersion.getVersionCode().then(data => this.versionCode = data);
-    this.appVersion.getVersionNumber().then(data => this.versionNumber = data);
+//    this.appVersion.getAppName().then(data => this.appName = data);
+//    this.appVersion.getPackageName().then(data => this.packageName = data);
+//    this.appVersion.getVersionCode().then(data => this.versionCode = data);
+//    this.appVersion.getVersionNumber().then(data => this.versionNumber = data);
   }
 
   changeLanguage() {
     let languageModal = this.modalCtrl.create(LanguagePage, {isModal: true}, {
       cssClass: 'language-modal'
-    });
-    languageModal.onDidDismiss((updatedConfigModel) => {
-      if (!_.isEqual(this.configModel, updatedConfigModel)) {
-        this.navCtrl.setRoot(SettingsPage);
-      }
     });
     languageModal.present();
   }
