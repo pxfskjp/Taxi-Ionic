@@ -14,7 +14,6 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {ConfigService} from '../providers/config-service/config-service';
-import {OpendataService} from '../providers/opendata-service/opendata-service';
 import {IonicStorageModule} from '@ionic/storage';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -72,7 +71,6 @@ export function createTranslateLoader(http: Http) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigService,
-    OpendataService,
     AppVersion,
     ScreenOrientation,
     TaxiService,

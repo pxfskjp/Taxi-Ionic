@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {OpendataRecordTaxiModel} from '../../models/taxi/opendata-record-taxi.model';
 import {ConfigService} from '../../providers/config-service/config-service';
 import {translitbg} from 'translitbg';
 import {TranslateService} from '@ngx-translate/core';
@@ -11,8 +10,8 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class DetailsPage {
 
-  public taxi: OpendataRecordTaxiModel;
-  public bk: OpendataRecordTaxiModel;
+  public taxi: any;
+  public bk: any;
 
   constructor(
     public navParams: NavParams,

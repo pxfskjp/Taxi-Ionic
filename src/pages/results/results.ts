@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {OpendataRecordTaxiModel} from '../../models/taxi/opendata-record-taxi.model';
-import {OpendataResponseTaxiModel} from '../../models/taxi/opendata-response-taxi.model';
 import {DetailsPage} from '../details/details';
 
 @Component({
@@ -10,7 +8,7 @@ import {DetailsPage} from '../details/details';
 })
 export class ResultsPage {
 
-  public results: OpendataResponseTaxiModel;
+  public results: any;
 
   constructor(
     public navCtrl: NavController,
@@ -22,7 +20,7 @@ export class ResultsPage {
   /**
    * Redirect to the details page, when a result is selected
    */
-  showDetails(item: OpendataRecordTaxiModel) {
+  showDetails(item: any) {
     this.navCtrl.push(DetailsPage, {taxi: item});
   }
 
