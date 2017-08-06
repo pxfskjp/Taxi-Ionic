@@ -15,6 +15,8 @@ export class ResultsPage {
     public navParams: NavParams) {
 
     this.results = this.navParams.get('items');
+    
+    console.log(this.results)
   }
 
   /**

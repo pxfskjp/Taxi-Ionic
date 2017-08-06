@@ -24,6 +24,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { MomentModule } from 'angular2-moment';
 import { TaxiService } from '../providers/taxi-service/taxi-service';
 import { ApiConfig } from '../providers/api-config/api-config';
+import { FormatPlatePipe } from '../pipes/format-plate/format-plate';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,7 +38,8 @@ export function createTranslateLoader(http: Http) {
     ResultsPage,
     DetailsPage,
     LanguagePage,
-    TabsPage
+    TabsPage,
+    FormatPlatePipe
   ],
   imports: [
     BrowserModule,
