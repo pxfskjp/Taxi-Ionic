@@ -35,7 +35,7 @@
       "packageName": "Package name",
       "versionCode": "Version code",
       "versionNumber": "Version number",
-      "note": "*Please note, at the moment, this app provides information for licensed taxi services in Sofia, Bulgaria. Other cities in Bulgaria will be added soon."
+      "note": "* Please note, at the moment, this app provides information for licensed taxi services in Sofia, Varna, Bourgas, Pleven and Rousse (Bulgaria). Other cities in Bulgaria will be added soon."
     }
   }
 }
