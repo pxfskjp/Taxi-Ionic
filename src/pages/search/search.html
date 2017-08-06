@@ -15,14 +15,14 @@
             <ion-label stacked text-center class="reg-plate__label">{{ 'page.search.placeholder' | translate }}:</ion-label>
             <ion-input type="search" class="reg-plate__input" text-center formControlName="q" clearInput="true" clearOnEdit="true" autocomplete="off" autocorrect="off" (click)="clearData()"></ion-input>
           </ion-item>
-          
-          <ion-item>
-            <ion-label>Area</ion-label>
-            <ion-select formControlName="area" *ngIf="configModel">
-              <ion-option *ngFor="let area of configModel.areas" [value]="area">{{ area.label  }}</ion-option>
-            </ion-select>
+
+          <ion-item *ngIf="configModel">
+            <ion-label>
+              {{ 'page.search.selectedCity' | translate }}: 
+              {{ configModel.selectedArea | translatedArea : configModel.selectedLanguage }}
+            </ion-label>
+            <ion-icon name="more" item-end (click)="changeArea()"></ion-icon>
           </ion-item>
-          
           <button margin-top ion-button full type="submit" [disabled]="!formData.valid">{{ 'page.search.button' | translate }}</button>
         </form>
       </ion-col>

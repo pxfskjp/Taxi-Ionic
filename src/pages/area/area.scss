@@ -1,4 +1,4 @@
-page-area {
+page-language {
   .modal-wrapper {
     left: 0;
     top: 0;
@@ -8,29 +8,33 @@ page-area {
   }
 
   .grid {
-    margin-top: 30%;
+    margin-top: 60%;
 
     @media screen and (min-width: 500px){
-      margin-top: 50%;
+      margin-top: 55%;
     }
 
     @media screen and (min-width: 600px){
-      margin-top: 40%;
+      margin-top: 50%;
     }
 
     @media screen and (min-width: 700px){
-      margin-top: 30%;
+      margin-top: 45%;
     }
 
     @media screen and (min-width: 800px){
-      margin-top: 25%;
+      margin-top: 35%;
     }
 
     @media screen and (min-width: 1024px){
-      margin-top: 20%;
+      margin-top: 30%;
     }
 
-    .areas {
+    @media screen and (min-width: 1200px){
+      margin-top: 25%;
+    }
+
+    .languages {
       .item {
         padding-left: 0;
 

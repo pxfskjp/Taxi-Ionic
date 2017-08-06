@@ -5,4 +5,5 @@ export class ConfigModel {
   public selectedLanguage: LanguageModel;
   public availableLanguages: Array<LanguageModel>;
   public areas: Array<AreaModel>;
+  public selectedArea: AreaModel;
 }

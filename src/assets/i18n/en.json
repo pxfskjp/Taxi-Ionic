@@ -5,6 +5,8 @@
       "title": "Check this taxi",
       "placeholder": "Plate number",
       "button": "Check now",
+      "selectCity": "Select city",
+      "selectedCity": "Selected city",
       "results": "Results: {{ total }}",
       "error": {
         "title": "Warning!",

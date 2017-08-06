@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, ModalController} from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {TaxiService} from '../../providers/taxi-service/taxi-service';
 import {ConfigService} from '../../providers/config-service/config-service';
 import {ConfigModel} from '../../models/config/config.model';
 import {ApiResponseTaxiModel} from '../../models/taxi/api-response-taxi.model';
 import {ResultsPage} from '../results/results';
+import {AreaPage} from '../area/area';
 import _ from 'lodash';
 
 @Component({
@@ -21,26 +22,26 @@ export class SearchPage {
 
   constructor(
     public navCtrl: NavController,
+    public modalCtrl: ModalController,
     public formBuilder: FormBuilder,
     public taxiService: TaxiService,
     public configService: ConfigService) {
 
     //search form setup
     this.formData = this.formBuilder.group({
-      q: ['', [Validators.required, Validators.minLength(4)]],
-      area: ['', Validators.required]
+      q: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 
   ionViewDidEnter() {
     this.clearData();
 
+    this.getConfigModelData();
+  }
+
+  getConfigModelData() {
     this.configService.getAll().then(data => {
       this.configModel = data;
-
-      this.configModel.areas.forEach(area => {
-        area['label'] = _.find(area.translation, {lang: this.configModel.selectedLanguage.code}).name;
-      });
     })
   }
 
@@ -49,7 +50,7 @@ export class SearchPage {
    */
   process() {
     this.taxiService
-      .search(this.formData.get('area').value, this.formData.get('q').value)
+      .search(this.configModel.selectedArea, this.formData.get('q').value)
       .subscribe((data: ApiResponseTaxiModel) => this.showResults(data));
   }
 
@@ -71,5 +72,18 @@ export class SearchPage {
     if (response.totalItems > 0) {
       return this.navCtrl.push(ResultsPage, {items: response.result});
     }
+  }
+
+  changeArea() {
+    let areaModal = this.modalCtrl.create(AreaPage, {isModal: true}, {
+      cssClass: 'area-modal',
+      enableBackdropDismiss: false
+    });
+    
+   areaModal.onDidDismiss(data => {
+     this.configModel = data;
+   });    
+    
+    areaModal.present();
   }
 }

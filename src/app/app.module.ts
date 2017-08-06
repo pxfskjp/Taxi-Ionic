@@ -8,6 +8,7 @@ import {SearchPage} from '../pages/search/search';
 import {ResultsPage} from '../pages/results/results';
 import {DetailsPage} from '../pages/details/details';
 import {LanguagePage} from '../pages/language/language';
+import {AreaPage} from '../pages/area/area';
 import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
@@ -25,6 +26,7 @@ import { MomentModule } from 'angular2-moment';
 import { TaxiService } from '../providers/taxi-service/taxi-service';
 import { ApiConfig } from '../providers/api-config/api-config';
 import { FormatPlatePipe } from '../pipes/format-plate/format-plate';
+import { TranslatedAreaPipe } from '../pipes/translated-area/translated-area';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,8 +40,10 @@ export function createTranslateLoader(http: Http) {
     ResultsPage,
     DetailsPage,
     LanguagePage,
+    AreaPage,
     TabsPage,
-    FormatPlatePipe
+    FormatPlatePipe,
+    TranslatedAreaPipe
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ export function createTranslateLoader(http: Http) {
     ResultsPage,
     TabsPage,
     DetailsPage,
-    LanguagePage
+    LanguagePage,
+    AreaPage
   ],
   providers: [
     StatusBar,

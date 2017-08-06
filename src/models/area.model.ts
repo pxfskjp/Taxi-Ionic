@@ -4,13 +4,11 @@ import _ from "lodash";
 export class AreaModel {
   public translation: Array<AreaNameTranslationModel>;
   public code: string;
-  public name?: string;
 
   static fromObject = function (data: object) {
 
     var obj = new AreaModel();
     obj.code = data['code'];
-    obj.name = data['name'];
     obj.translation = [];
 
     if (!_.isUndefined(data['translation'])) {
@@ -18,7 +16,6 @@ export class AreaModel {
         obj.translation.push(AreaNameTranslationModel.fromObject(n));
       });
     }
-
 
     return obj;
   }
