@@ -6,7 +6,6 @@ import {AreaModel} from '../../models/area.model';
 import {ApiResponseTaxiModel} from '../../models/taxi/api-response-taxi.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import _ from 'lodash';
 
 @Injectable()
 export class TaxiService {

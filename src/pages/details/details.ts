@@ -13,8 +13,8 @@ import {CompanyModel} from '../../models/company.model';
 })
 export class DetailsPage {
 
-  public taxi: any;
-  public company: any;
+  public taxi: TaxiModel;
+  public company: CompanyModel;
 
   constructor(
     public navParams: NavParams,

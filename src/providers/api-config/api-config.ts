@@ -4,7 +4,6 @@ import {ConfigService} from '../config-service/config-service';
 import {AreasModel} from '../../models/areas.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import _ from 'lodash';
 
 @Injectable()
 export class ApiConfig {

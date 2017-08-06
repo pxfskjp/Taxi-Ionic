@@ -3,9 +3,7 @@ import {NavController, NavParams, ViewController, ModalController} from 'ionic-a
 import {ConfigService} from '../../providers/config-service/config-service';
 import {ApiConfig} from '../../providers/api-config/api-config';
 import {LanguageModel} from '../../models/config/language.model';
-import {AreasModel} from '../../models/areas.model';
 import {ConfigModel} from '../../models/config/config.model';
-import {TabsPage} from '../tabs/tabs';
 import {AreaPage} from '../area/area';
 import _ from 'lodash';
 
@@ -46,15 +44,6 @@ export class LanguagePage {
       }
     });
   }
-
-//  ionViewWillEnter() {
-//    return this.apiConfig
-//      .getApiConfig()
-//      .subscribe((areasModel: AreasModel) => {
-//        this.configModel.areas = areasModel.areas;
-//        this.configService.save(this.configModel);
-//      });
-//  }
 
   setLanguage(selectedLanguage: LanguageModel) {
 

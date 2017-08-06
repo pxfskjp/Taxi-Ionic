@@ -7,7 +7,6 @@ import {ConfigModel} from '../../models/config/config.model';
 import {ApiResponseTaxiModel} from '../../models/taxi/api-response-taxi.model';
 import {ResultsPage} from '../results/results';
 import {AreaPage} from '../area/area';
-import _ from 'lodash';
 
 @Component({
   selector: 'page-search',
