@@ -23,6 +23,8 @@ import {AppVersion} from '@ionic-native/app-version';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { MomentModule } from 'angular2-moment';
+import { TaxiService } from '../providers/taxi-service/taxi-service';
+import { ApiConfig } from '../providers/api-config/api-config';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -72,7 +74,9 @@ export function createTranslateLoader(http: Http) {
     ConfigService,
     OpendataService,
     AppVersion,
-    ScreenOrientation
+    ScreenOrientation,
+    TaxiService,
+    ApiConfig
   ]
 })
 export class AppModule {}

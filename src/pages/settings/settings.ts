@@ -4,7 +4,6 @@ import {AppVersion} from '@ionic-native/app-version';
 import {ConfigService} from '../../providers/config-service/config-service';
 import {LanguagePage} from '../language/language';
 import {TranslateService} from '@ngx-translate/core';
-import _ from 'lodash';
 
 @Component({
   selector: 'page-settings',
@@ -27,7 +26,7 @@ export class SettingsPage {
   }
 
   ionViewDidEnter() {
-
+    this.configService.getAll().then(data => console.log(data))
 //    this.appVersion.getAppName().then(data => this.appName = data);
 //    this.appVersion.getPackageName().then(data => this.packageName = data);
 //    this.appVersion.getVersionCode().then(data => this.versionCode = data);

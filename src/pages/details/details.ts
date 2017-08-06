@@ -4,8 +4,6 @@ import {OpendataRecordTaxiModel} from '../../models/taxi/opendata-record-taxi.mo
 import {ConfigService} from '../../providers/config-service/config-service';
 import {translitbg} from 'translitbg';
 import {TranslateService} from '@ngx-translate/core';
-import {ConfigModel} from '../../models/config/config.model';
-import _ from 'lodash';
 
 @Component({
   selector: 'page-details',

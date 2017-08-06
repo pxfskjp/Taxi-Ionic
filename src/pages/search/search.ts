@@ -18,7 +18,7 @@ export class SearchPage {
   constructor(
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
-    public opendataService: OpendataService, ) {
+    public opendataService: OpendataService ) {
 
     //search form setup
     this.formData = this.formBuilder.group({
