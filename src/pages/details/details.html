@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title text-center>{{ taxi.RegN }}</ion-title>
+    <ion-title text-center>{{ taxi.car.plate | formatPlate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,35 +9,37 @@
   <!-- results listing - start -->
   <ion-list>
     <ion-item>
-      {{ 'page.details.car' | translate }}: <span item-end>{{ taxi.Marka }} {{ taxi.Model }}</span>
-    </ion-item>
-    
-    <ion-item>
-      {{ 'page.details.license.number' | translate }}: <span item-end>{{ taxi.RazrNom }}</span>
+      {{ 'page.details.car' | translate }}: <span item-end>{{ taxi.car.make }} {{ taxi.car.model }}</span>
     </ion-item>
 
-    <ion-item>
-      {{ 'page.details.license.from' | translate }}: <span item-end>{{ taxi.RazrData | amLocale: translateService.currentLang | amDateFormat : 'DD/MMMM/YYYY' }}</span>
+    <ion-item *ngIf="taxi.license.code">
+      {{ 'page.details.license.number' | translate }}: <span item-end>{{ taxi.license.code }}</span>
     </ion-item>
-    
-    <ion-item>
-      {{ 'page.details.license.to' | translate }}: <span item-end>{{ taxi.DataValid | amLocale: translateService.currentLang | amDateFormat : 'DD/MMMM/YYYY' }}</span>
+
+    <ion-item *ngIf="taxi.license.from">
+      {{ 'page.details.license.from' | translate }}: <span item-end>{{ taxi.license.from | amLocale: translateService.currentLang | amDateFormat : 'DD/MMMM/YYYY' }}</span>
     </ion-item>
-    
-    <ion-item>
-      {{ 'page.details.certificate' | translate }}: <span item-end>{{ taxi.Udost }}</span>
+
+    <ion-item *ngIf="taxi.license.to">
+      {{ 'page.details.license.to' | translate }}: <span item-end>{{ taxi.license.to | amLocale: translateService.currentLang | amDateFormat : 'DD/MMMM/YYYY' }}</span>
     </ion-item>
-    
+
+    <span *ngFor="let driver of taxi.drivers">
+      <ion-item>
+        {{ 'page.details.driverName' | translate }}: <span item-end>{{ driver.names }}</span>
+      </ion-item>
+
+      <ion-item *ngIf="driver.certificate">
+        {{ 'page.details.certificate' | translate }}: <span item-end>{{ driver.certificate.code }}</span>
+      </ion-item>    
+    </span>
+
     <ion-item>
-      {{ 'page.details.driverName' | translate }}: <span item-end>{{taxi.VodachIme}}</span>
+      {{ 'page.details.company.name' | translate }}: <span item-end>{{ company.name }}</span>
     </ion-item>
-        
-    <ion-item>
-      {{ 'page.details.company.name' | translate }}: <span item-end>{{ taxi.Prevozvach }}</span>
-    </ion-item>
-    
-    <ion-item>
-      {{ 'page.details.company.id' | translate }}: <span item-end>{{ taxi.EIK }}</span>
+
+    <ion-item *ngIf="company.eik">
+      {{ 'page.details.company.id' | translate }}: <span item-end>{{ company.eik }}</span>
     </ion-item>        
   </ion-list>
   <!-- results listing - end -->

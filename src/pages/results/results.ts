@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {DetailsPage} from '../details/details';
+import _ from 'lodash';
 
 @Component({
   selector: 'page-results',
@@ -15,15 +16,18 @@ export class ResultsPage {
     public navParams: NavParams) {
 
     this.results = this.navParams.get('items');
-    
-    console.log(this.results)
   }
 
   /**
    * Redirect to the details page, when a result is selected
    */
   showDetails(item: any) {
-    this.navCtrl.push(DetailsPage, {taxi: item});
+
+    //lookup the taxi operator company and add pass it to the next page
+    this.navCtrl.push(DetailsPage, {
+      taxi: item,
+      company: _.find(this.results.companies, {id: item.operatorId})
+    });
   }
 
 }

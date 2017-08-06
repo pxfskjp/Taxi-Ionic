@@ -26,7 +26,7 @@ export class SettingsPage {
   }
 
   ionViewDidEnter() {
-    this.configService.getAll().then(data => console.log(data))
+//    this.configService.getAll().then(data => console.log(data))
 //    this.appVersion.getAppName().then(data => this.appName = data);
 //    this.appVersion.getPackageName().then(data => this.packageName = data);
 //    this.appVersion.getVersionCode().then(data => this.versionCode = data);
