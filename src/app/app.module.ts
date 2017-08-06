@@ -18,7 +18,7 @@ import {ConfigService} from '../providers/config-service/config-service';
 import {IonicStorageModule} from '@ionic/storage';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpModule, Http, JsonpModule} from '@angular/http';
+import {HttpModule, Http} from '@angular/http';
 import {AppVersion} from '@ionic-native/app-version';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
@@ -52,7 +52,6 @@ export function createTranslateLoader(http: Http) {
     }),
     IonicStorageModule.forRoot(),
     HttpModule,
-    JsonpModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

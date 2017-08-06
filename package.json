@@ -66,6 +66,8 @@
             "ionic-plugin-keyboard": {},
             "cordova-plugin-screen-orientation": {}
         },
-        "platforms": []
+        "platforms": [
+            "android"
+        ]
     }
 }

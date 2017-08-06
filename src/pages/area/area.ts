@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, ViewController, ModalController} from 'ionic-angular';
+import {NavController, NavParams, ViewController, ModalController, LoadingController, Loading} from 'ionic-angular';
 import {ConfigService} from '../../providers/config-service/config-service';
 import {ApiConfig} from '../../providers/api-config/api-config';
 import {AreaModel} from '../../models/area.model';
@@ -18,29 +18,46 @@ export class AreaPage {
   public configModel: ConfigModel;
   public apiConfigData: object;
   public selectedArea: any;
+  public loading: Loading;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public viewCtrl: ViewController,
+    public loadingCtrl: LoadingController,
     public configService: ConfigService,
     public apiConfig: ApiConfig) {
   }
 
+  presentLoadingDefault() {
+    this.loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
+  }
+
   ionViewCanEnter() {
+
+    this.presentLoadingDefault();
+
     return this.configService.getAll().then((configModel: ConfigModel) => {
+
+      this.loading.dismiss();
+
       this.configModel = configModel;
 
       if (!_.isEmpty(this.configModel.selectedArea) && _.isEmpty(this.navParams.data)) {
         this.navCtrl.setRoot(TabsPage);
-        return true;
       }
+
+      return true;
 
     });
   }
 
-  ionViewWillEnter() {
+  ionViewDidEnter() {
     return this.apiConfig
       .getApiConfig()
       .subscribe((areasModel: AreasModel) => {

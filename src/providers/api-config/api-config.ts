@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Jsonp, Headers} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import {ConfigService} from '../config-service/config-service';
 import {AreasModel} from '../../models/areas.model';
 import 'rxjs/add/operator/map';
@@ -15,8 +15,7 @@ export class ApiConfig {
 
   constructor(
     public configService: ConfigService,
-    public http: Http,
-    public jsonp: Jsonp) {
+    public http: Http) {
 
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
@@ -30,7 +29,7 @@ export class ApiConfig {
   getApiConfig() {
 
     return this.http
-      .request(this.getBaseUrl() + this.resourceUri, this.headers)
+      .get(this.getBaseUrl() + this.resourceUri, this.headers)
       .map(res => AreasModel.fromObject(res.json()))
       .map((res: AreasModel) => {
         return res;

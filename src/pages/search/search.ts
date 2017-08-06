@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, ModalController} from 'ionic-angular';
+import {NavController, ModalController, LoadingController, Loading} from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {TaxiService} from '../../providers/taxi-service/taxi-service';
 import {ConfigService} from '../../providers/config-service/config-service';
@@ -17,11 +17,12 @@ export class SearchPage {
   private formData: FormGroup;
   public response: ApiResponseTaxiModel;
   public configModel: ConfigModel;
-
+  public loading: Loading;
 
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController,
     public formBuilder: FormBuilder,
     public taxiService: TaxiService,
     public configService: ConfigService) {
@@ -30,6 +31,14 @@ export class SearchPage {
     this.formData = this.formBuilder.group({
       q: ['', [Validators.required, Validators.minLength(4)]]
     });
+  }
+
+  presentLoadingDefault() {
+    this.loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
   }
 
   ionViewDidEnter() {
@@ -48,6 +57,9 @@ export class SearchPage {
    * Handle form submittion
    */
   process() {
+    
+    this.presentLoadingDefault();
+    
     this.taxiService
       .search(this.configModel.selectedArea, this.formData.get('q').value)
       .subscribe((data: ApiResponseTaxiModel) => this.showResults(data));
@@ -67,6 +79,7 @@ export class SearchPage {
   showResults(response: ApiResponseTaxiModel) {
 
     this.response = response;
+    this.loading.dismiss();
 
     if (response.totalItems > 0) {
       return this.navCtrl.push(ResultsPage, {items: response.result});
@@ -78,11 +91,11 @@ export class SearchPage {
       cssClass: 'area-modal',
       enableBackdropDismiss: false
     });
-    
-   areaModal.onDidDismiss(data => {
-     this.configModel = data;
-   });    
-    
+
+    areaModal.onDidDismiss(data => {
+      this.configModel = data;
+    });
+
     areaModal.present();
   }
 }

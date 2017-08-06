@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Jsonp, Headers} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import {ConfigService} from '../config-service/config-service';
 import {ApiConfig} from '../api-config/api-config';
 import {AreaModel} from '../../models/area.model';
@@ -17,8 +17,7 @@ export class TaxiService {
   constructor(
     public configService: ConfigService,
     public apiConfig: ApiConfig,
-    public http: Http,
-    public jsonp: Jsonp) {
+    public http: Http) {
 
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
@@ -37,7 +36,7 @@ export class TaxiService {
   search(area: AreaModel, q: string) {
 
     return this.http
-      .request(this.apiConfig.getBaseUrl() + this.resourceUri + '?area.code=' + area.code + '&car.plate=' + q )
+      .get(this.apiConfig.getBaseUrl() + this.resourceUri + '?area.code=' + area.code + '&car.plate=' + q )
       .map(res => ApiResponseTaxiModel.fromObject(res.json()))
       .map(res => {
         return res;
