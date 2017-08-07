@@ -5,9 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-
-  <!-- search form - start -->
   <ion-grid>
+    <!-- search form - start -->
     <ion-row justify-content-around>
       <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>        
         <form [formGroup]="formData" (ngSubmit)="process()">
@@ -15,22 +14,33 @@
             <ion-label stacked text-center class="reg-plate__label">{{ 'page.search.placeholder' | translate }}:</ion-label>
             <ion-input type="search" class="reg-plate__input" text-center formControlName="q" clearInput="true" clearOnEdit="true" autocomplete="off" autocorrect="off" (click)="clearData()"></ion-input>
           </ion-item>
+
+          <ion-item *ngIf="configModel">
+            <ion-label>
+              {{ 'page.search.selectedCity' | translate }}: 
+              {{ configModel.selectedArea | translatedArea : configModel.selectedLanguage }}
+            </ion-label>
+            <ion-icon name="more" item-end (click)="changeArea()"></ion-icon>
+          </ion-item>
           <button margin-top ion-button full type="submit" [disabled]="!formData.valid">{{ 'page.search.button' | translate }}</button>
         </form>
       </ion-col>
     </ion-row>
+    <!-- search form - end -->
+
+    <!-- no results - start -->
+    <ion-row justify-content-around>
+      <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>    
+        <ion-card class="no-results" *ngIf="response && response.totalItems === 0">
+          <ion-card-header text-center>
+            {{ 'page.search.error.title' | translate }}
+          </ion-card-header>
+          <ion-card-content>
+            {{ 'page.search.error.message' | translate }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!-- no results - end -->        
   </ion-grid>    
-  <!-- search form - end -->
-
-  <!-- no results - start -->
-  <ion-card class="no-results" *ngIf="results && results.result.total === 0">
-    <ion-card-header text-center>
-      {{ 'page.search.error.title' | translate }}
-    </ion-card-header>
-    <ion-card-content>
-      {{ 'page.search.error.message' | translate }}
-    </ion-card-content>
-  </ion-card>
-  <!-- no results - end -->
-
 </ion-content>

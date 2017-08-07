@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {OpendataRecordTaxiModel} from '../../models/taxi/opendata-record-taxi.model';
-import {OpendataResponseTaxiModel} from '../../models/taxi/opendata-response-taxi.model';
 import {DetailsPage} from '../details/details';
+import _ from 'lodash';
 
 @Component({
   selector: 'page-results',
@@ -10,22 +9,25 @@ import {DetailsPage} from '../details/details';
 })
 export class ResultsPage {
 
-  public results: OpendataResponseTaxiModel;
+  public results: any;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams) {
-    
+
     this.results = this.navParams.get('items');
   }
-
-  
 
   /**
    * Redirect to the details page, when a result is selected
    */
-  showDetails(item: OpendataRecordTaxiModel) {
-    this.navCtrl.push(DetailsPage, {taxi: item});
+  showDetails(item: any) {
+
+    //lookup the taxi operator company and add pass it to the next page
+    this.navCtrl.push(DetailsPage, {
+      taxi: item,
+      company: _.find(this.results.companies, {id: item.operatorId})
+    });
   }
 
 }

@@ -1,0 +1,23 @@
+<ion-content padding>
+
+  <!-- results listing - start -->
+  <ion-grid>
+    <ion-row justify-content-around>
+      <ion-col col-sm-6   align-self-center>  
+        <ion-list radio-group class="areas" *ngIf="configModel && configModel.areas">
+          <ion-list-header>
+            {{ 'page.search.selectCity' | translate }}
+          </ion-list-header>          
+
+          <ion-item *ngFor="let area of configModel.areas">
+            <ion-label>{{ area | translatedArea : configModel.selectedLanguage }} {{ area.isSelected }}</ion-label>
+            <ion-radio  (ionSelect)="setArea(area)" [checked]="configModel.selectedArea && configModel.selectedArea.code == area.code"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>    
+  <!-- results listing - end -->
+
+</ion-content>
+

@@ -8,33 +8,33 @@
   <ion-list>
     <ion-item>
       <ion-label>{{ 'page.settings.language' | translate }}:</ion-label>
-      <ion-select [(ngModel)]="config.lang" (ionChange)="saveLanguage()">
-        <ion-option *ngFor="let language of languagesList" value="{{language.code}}">{{language.name}}</ion-option>
-      </ion-select>
+      <ion-avatar item-end>
+        <img src="assets/images/flags/{{ translate.currentLang }}.png" (click)="changeLanguage();">
+      </ion-avatar>
     </ion-item>
 
     <ion-item>
       {{ 'page.settings.appName' | translate }}:
       <span item-end>{{ appName }}</span>
     </ion-item>
-    
+
     <ion-item>
       {{ 'page.settings.packageName' | translate }}:
       <span item-end>{{ packageName }}</span>
     </ion-item>
-    
+
     <ion-item>
       {{ 'page.settings.versionCode' | translate }}:
       <span item-end>{{ versionCode }}</span>
     </ion-item>
-    
+
     <ion-item>
       {{ 'page.settings.versionNumber' | translate }}:
       <span item-end>{{ versionNumber }}</span>
     </ion-item>
-    
+
   </ion-list>
-  
+
   <ion-grid>
     <ion-row>
       <ion-col class="note">{{ 'page.settings.note' | translate }}</ion-col>

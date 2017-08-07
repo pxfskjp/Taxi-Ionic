@@ -97,6 +97,10 @@ $item-wp-detail-push-show: true;
 
 .card {
   &.no-results {
+    
+    margin: 12px 0 0 0;
+    width: 100%;
+    
     .card-header {
       background: #ac0e46;
       color: #efedee;

@@ -7,21 +7,26 @@ import {SettingsPage} from '../pages/settings/settings';
 import {SearchPage} from '../pages/search/search';
 import {ResultsPage} from '../pages/results/results';
 import {DetailsPage} from '../pages/details/details';
+import {LanguagePage} from '../pages/language/language';
+import {AreaPage} from '../pages/area/area';
 import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {ConfigService} from '../providers/config-service/config-service';
-import {OpendataService} from '../providers/opendata-service/opendata-service';
 import {IonicStorageModule} from '@ionic/storage';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpModule, Http, JsonpModule} from '@angular/http';
+import {HttpModule, Http} from '@angular/http';
 import {AppVersion} from '@ionic-native/app-version';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { MomentModule } from 'angular2-moment';
+import { TaxiService } from '../providers/taxi-service/taxi-service';
+import { ApiConfig } from '../providers/api-config/api-config';
+import { FormatPlatePipe } from '../pipes/format-plate/format-plate';
+import { TranslatedAreaPipe } from '../pipes/translated-area/translated-area';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,7 +39,11 @@ export function createTranslateLoader(http: Http) {
     SearchPage,
     ResultsPage,
     DetailsPage,
-    TabsPage
+    LanguagePage,
+    AreaPage,
+    TabsPage,
+    FormatPlatePipe,
+    TranslatedAreaPipe
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,6 @@ export function createTranslateLoader(http: Http) {
     }),
     IonicStorageModule.forRoot(),
     HttpModule,
-    JsonpModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -60,16 +68,19 @@ export function createTranslateLoader(http: Http) {
     SearchPage,
     ResultsPage,
     TabsPage,
-    DetailsPage
+    DetailsPage,
+    LanguagePage,
+    AreaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConfigService,
-    OpendataService,
     AppVersion,
-    ScreenOrientation
+    ScreenOrientation,
+    TaxiService,
+    ApiConfig
   ]
 })
 export class AppModule {}

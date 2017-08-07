@@ -1,10 +1,10 @@
-export class OpendataFieldsModel {
-  public type: string;
-  public id: string;
+export class AreaNameTranslationModel {
+  public lang: string;
+  public name: string;
   
   static fromObject = function (data: object) {
 
-    var obj = new OpendataFieldsModel();
+    var obj = new AreaNameTranslationModel();
 
     for(var i in data){
         obj[i] = data[i];

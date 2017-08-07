@@ -7,13 +7,13 @@
 <ion-content padding>
 
   <!-- results listing - start -->
-  <ion-grid *ngIf="results && results.result.total > 0">
+  <ion-grid *ngIf="results && results.items.length > 0">
     <ion-row justify-content-around>
       <ion-col col-sm-6 col-md-6 col-lg-4 col-xl-3  align-self-center>  
-        <h6>{{ 'page.search.results' | translate : {total: results.result.total} }}</h6>
+        <h6>{{ 'page.search.results' | translate : {total: results.items.length} }}</h6>
         <ion-list class="results">
-          <button ion-item class="reg-plate" *ngFor="let item of results.result.records" (click)="showDetails(item)">
-                  {{ item.RegN }}
+          <button ion-item class="reg-plate" *ngFor="let item of results.items" (click)="showDetails(item)">
+                  {{ item.car.plate | formatPlate }}
         </button>  
       </ion-list>
     </ion-col>
