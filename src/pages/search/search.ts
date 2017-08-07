@@ -7,6 +7,7 @@ import {ConfigModel} from '../../models/config/config.model';
 import {ApiResponseTaxiModel} from '../../models/taxi/api-response-taxi.model';
 import {ResultsPage} from '../results/results';
 import {AreaPage} from '../area/area';
+import _ from "lodash";
 
 @Component({
   selector: 'page-search',
@@ -57,9 +58,9 @@ export class SearchPage {
    * Handle form submittion
    */
   process() {
-    
+
     this.presentLoadingDefault();
-    
+
     this.taxiService
       .search(this.configModel.selectedArea, this.formData.get('q').value)
       .subscribe((data: ApiResponseTaxiModel) => this.showResults(data));
@@ -93,7 +94,9 @@ export class SearchPage {
     });
 
     areaModal.onDidDismiss(data => {
-      this.configModel = data;
+      if (!_.isUndefined(data)) {
+        this.configModel = data;
+      }
     });
 
     areaModal.present();
