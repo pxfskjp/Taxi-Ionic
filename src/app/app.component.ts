@@ -5,13 +5,13 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {ScreenOrientation} from '@ionic-native/screen-orientation';
 import {TranslateService} from '@ngx-translate/core';
 import {ConfigService} from '../providers/config-service/config-service';
-import {LanguagePage} from '../pages/language/language';
+import {DispatchPage} from '../pages/dispatch/dispatch';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = LanguagePage;
+  rootPage: any = DispatchPage;
 
   constructor(
     platform: Platform,

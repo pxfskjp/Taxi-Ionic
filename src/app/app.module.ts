@@ -7,6 +7,7 @@ import {SettingsPage} from '../pages/settings/settings';
 import {SearchPage} from '../pages/search/search';
 import {ResultsPage} from '../pages/results/results';
 import {DetailsPage} from '../pages/details/details';
+import {DispatchPage} from '../pages/dispatch/dispatch';
 import {LanguagePage} from '../pages/language/language';
 import {AreaPage} from '../pages/area/area';
 import {TabsPage} from '../pages/tabs/tabs';
@@ -39,6 +40,7 @@ export function createTranslateLoader(http: Http) {
     SearchPage,
     ResultsPage,
     DetailsPage,
+    DispatchPage,
     LanguagePage,
     AreaPage,
     TabsPage,
@@ -69,6 +71,7 @@ export function createTranslateLoader(http: Http) {
     ResultsPage,
     TabsPage,
     DetailsPage,
+    DispatchPage,
     LanguagePage,
     AreaPage
   ],
