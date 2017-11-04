@@ -29,16 +29,16 @@
         {{ 'page.details.driverName' | translate }}: <span item-end>{{ driver.names }}</span>
       </ion-item>
 
-      <ion-item *ngIf="driver.certificate">
+      <ion-item *ngIf="driver.certificate && driver.certificate.code">
         {{ 'page.details.certificate' | translate }}: <span item-end>{{ driver.certificate.code }}</span>
       </ion-item>    
     </span>
 
-    <ion-item>
+    <ion-item *ngIf="company && company.name">
       {{ 'page.details.company.name' | translate }}: <span item-end>{{ company.name }}</span>
     </ion-item>
 
-    <ion-item *ngIf="company.eik">
+    <ion-item *ngIf="company && company.eik">
       {{ 'page.details.company.id' | translate }}: <span item-end>{{ company.eik }}</span>
     </ion-item>        
   </ion-list>

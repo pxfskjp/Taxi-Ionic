@@ -6,6 +6,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {TaxiModel} from '../../models/taxi/taxi.model';
 import {TaxiDriverModel} from '../../models/taxi/taxi-driver.model';
 import {CompanyModel} from '../../models/company.model';
+import _ from 'lodash';
 
 @Component({
   selector: 'page-details',
@@ -38,7 +39,10 @@ export class DetailsPage {
 
       this.taxi.car.make = tr.in(this.taxi.car.make).go();
       this.taxi.car.model = tr.in(this.taxi.car.model).go();
-      this.company.name = tr.in(this.company.name).go();
+
+      if (!_.isUndefined(this.company)) {
+        this.company.name = tr.in(this.company.name).go();
+      }
     }
   }
 }

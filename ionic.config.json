@@ -1,5 +1,8 @@
 {
   "name": "toxic-taxi-check",
   "app_id": "a5726cb1",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

@@ -1,8 +1,8 @@
 {
     "name": "toxic-taxi-check",
-    "version": "0.0.7",
+    "version": "1.1.2",
     "author": "Venelin Manchev",
-    "homepage": "http://toxic.digital/",
+    "homepage": "http://taxicheck.bg",
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",
