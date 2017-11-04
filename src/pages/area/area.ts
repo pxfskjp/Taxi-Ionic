@@ -61,7 +61,11 @@ export class AreaPage {
     return this.apiConfig
       .getApiConfig()
       .subscribe((areasModel: AreasModel) => {
-        this.configModel.areas = areasModel.areas;
+
+        this.configModel.areas = _.sortBy(areasModel.areas, (areaModel: AreaModel) => {
+          return _.find(areaModel.translation, {lang: this.configModel.selectedLanguage.code}).name;
+        });
+
         this.configService.save(this.configModel);
       });
   }
